@@ -34,9 +34,9 @@
 
 **HTTP/HTTPS** - Hyper Text Transfer Protocol (Secured)
 
-**SSL** - Secure Socket Layer
+**SSL** - [[notes/networking/SSL & TLS basics|Secure Socket Layer]]
 
-**TLS** - Transport Layer Security
+**TLS** - [[notes/networking/SSL & TLS basics|Transport Layer Security]]
 
 **TCP** - Transmission Control Protocol
 
@@ -44,16 +44,16 @@
 
 **NFC** - Near Field Communication
 
-**NAS** - Network Attached Storage
+**NAS** - [[notes/networking/NAS & SAN basics|Network Attached Storage]]
 
-**SAN** - Storage Area Network
+**SAN** - [[notes/networking/NAS & SAN basics|Storage Area Network]]
 
 **NTP** - Network Time Protocol
 
-**IPAM** - IP Address Management
+**IPAM** - [[notes/networking/IPAM|IP Address Management]]
 
 **CIDR** - Classless Inter-Domain Routing
 
-**OSI** - Open Systems Interconnection
+**OSI** - [[notes/networking/OSI model|Open Systems Interconnection]]
 
 **MAC** - Media access control
