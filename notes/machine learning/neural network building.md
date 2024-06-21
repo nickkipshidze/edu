@@ -34,3 +34,38 @@ Note that with the first activation function, the identity function, the neuron 
 The output of the neuron, determined by the linear combination and the activation function, can be used to extract a prediction or a decision. For example, if the network is designed to identify a stop sign in front of a self-driving car, the input can be the pixels of an image captured by a camera attached in front of the car, and the output can be used to activate a stopping procedure that stops the car before the sign.
 
 Learning or adaptation in the network occurs when the weights are adjusted so as to make the network produce the correct outputs, just like in linear or logistic regression. Many neural networks are very large, and the largest contain hundreds of billions of weights. Optimizing them all can be a daunting task that requires massive amounts of computing power.
+
+## Perceptron: the mother of all ANNs
+
+The perceptron is simply a fancy name for the simple neuron model with the step activation function we discussed above. It was among the very first formal models of neural computation and because of its fundamental role in the history of neural networks, it wouldn't be unfair to call it the "mother of all artificial neural networks".
+
+It can be used as a simple classifier in binary classification tasks. A method for learning the weights of the perceptron from data, called the Perceptron algorithm, was introduced by the psychologist Frank Rosenblatt in 1957. We will not study the Perceptron algorithm in detail. Suffice to say that it is just about as simple as the [[notes/machine learning/nearest neighbor|nearest neighbor classifier]]. The basic principle is to feed the network training data once example at a time. Each misclassification leads to an  update in the weight.
+
+> AI hyperbole
+> 
+> After its discovery, the Perceptron algorithm received a lot of attention, not least because of optimistic statements made by its inventor, Frank Rosenblatt. A classic example of AI hyperbole is a New York Times article published on July 8th, 1958: "The Navy revealed the embryo of an electronic computer today that it expects will be able to walk, talk, see, reproduce itself and be conscious of its existence."
+> 
+> Please note that neural network enthusiasts are not at all the only ones inclined towards optimism. The rise and fall of the logic-based expert systems approach to AI had all the same hallmark features of an AI-hype and people claimed that the final breakthrough is just a short while away. The outcome both in the early 1960s and late 1980s was a collapse in the research funding cllaed AI Winter.
+
+The history of the debate that eventually lead to almost complete abandoning of the neural network approach in the 1960s for more than two decades is extremely fascinating. The article [A Sociological Study of the Official History of the Perceptrons Controversy](http://journals.sagepub.com/doi/10.1177/030631296026003005) by Mikel Olazaran (published in Social Studies of Science, 1996) reviews the events from a sociology of science point of view. Reading it today is quite thought provoking. Reading stories about celebrated AI heroes who had developed neural networks algorithms that would soon reach the level of human intelligence and become self-conscious can be compared to some statements made during the current hype. If you take a look at the above article, even if you wouldn't real all of it, it will provide an interesting background to today's news. Consider for example an [article in the MIT Technology Review](https://www.technologyreview.com/s/608911/is-ai-riding-a-one-trick-pony/) published in September 2017, where Jordan Jacobs, co-founder of a multi-million dollar Vector institute for AI compares Geoffrey Hinton (a figure-head of the current deep learning boom) to Einstein because of his contributions to development of neural network algorithms in the 1980s and later. Also recall the human brain project mentioned in the previous section.
+
+According to Hinton, "the fact that it doesn't work is just a temporary annoyance" (although according to the article, Hinton is laughing about the above statement, so it's hard to tell how serious he is about it). The human brain project claims to be ["close to a profound leap in our understanding of consciousness"](https://www.humanbrainproject.eu/en/follow-hbp/news/the-quest-for-consciousness/). Doesn't that sound familiar?
+
+No-one really knows the future with certainty, but knowing the track record of earlier announcements of imminent breakthroughs, some critical thinking is advised. We'll return to the future of AI in the final chapter, but for now, let's see how artificial neural networks are built.
+
+## Putting neurons together: networks
+
+A single neuron would be way too simple to make decisions and prediction reliably in most real-life applications. To unleash the full potential of neural networks, we can use the output of one neuron as the input of other neurons, whose outputs can be the input to yet other neurons, and so on. The output of the whole network is obtained as the output of a certain subset of the neurons, which are called the output layer. We'll return to this in a bit, after we discussed the way neural networks adapt to produce different behaviors by learning their parameters from data.
+
+> Layers
+> 
+> Often the network architecture is composed of layers. The input layer consists of neurons that get their inputs directly from the data. So for example, in an image recognition task, the input layer would use the pixel values of the input image as the inputs of the input layer. The network typically also has hidden layers that use the other neurons' outputs as their input, and whose output is used as the input to other layers of neurons. Finally, the output layer produces the output of the whole network. All the neurons on a given layer get inputs from neurons on the previous layer and feed their output to the next.
+
+A classical example of a multilayer network is the so-called multilayer perceptron. As we discussed above, Rosenblatt's Perceptron algorithm can be used to learn the weights of a perceptron. For multilayer perceptron, the corresponding learning problem is way harder and it took a long time before a working solution was discovered. But eventually, one was invented: the backpropagation algorithm led to a revival of neural networks in the late 1980s. It is still at the heart of many of the most advanced deep learning solutions.
+
+> Meanwhile in Helsinki...
+> 
+> The path(s) leading to the backpropagation algorithm are rather long and winding. An interesting part of the history is related to the computer science department of the University of Helsinki. About three years after the founding of the department in 1967, [a master's thesis](http://people.idsia.ch/~juergen/linnainmaa1970thesis.pdf) was written by a student calld Seppo Linnainmaa. The topic of the thesis was "cumulative rounding error of algorithms as a Taylor approximation of individual rounding errors" (the thesis was written in Finnish, so this is a translation of the actual title).
+> 
+> The automatic differentiation method developed in the thesis was later applied by other researchers to quantify the sensitivity of the output of a multilayer neural network with respect to the individual weights, which is the key idea in backpropagation.
+
