@@ -69,3 +69,24 @@ A classical example of a multilayer network is the so-called multilayer perceptr
 > 
 > The automatic differentiation method developed in the thesis was later applied by other researchers to quantify the sensitivity of the output of a multilayer neural network with respect to the individual weights, which is the key idea in backpropagation.
 
+## A simple neural network classifier
+
+To give a relatively simple example of using a neural network classifier, we'll consider a task that is very similar to the MNIST digit recognition task, namely classifying images in two classes. We will first create a classifier to classify whether an image shows a cross (X) or a circle (O). Our images are represented here as pixels that are either colored or white, and the pixels are arranged in 5 x 5 grid. In this format our images of a cross and circle (more like a diamond, to be honest) look like this:
+
+![[notes/machine learning/5x5 grid.png]]
+
+In order to build a neural network classifier, we need to formalize the problem in a way where we can solve it using the methods we have learned. Our first step is to represent the information in the pixels by numerical values that can be used as the input to a classifier. Let's use 1 if the square is colored, and 0 if it is white. Note that although the symbols in the above graphic are of different color (green and blue), our classifier will ignore the color information and use only the colored/white information. The 25 pixels in the image make the inputs of our classifier.
+
+To make sure that we know which pixel is which in the numerical representation, we can decide to list the pixels in the same order as you'd read text, so row by row from the top, and reading each row from left to right. The first row of the cross, for example, is represented as `1,0,0,0,1`; The second row as `0,1,0,1,0` and so on. The full input for the cross input is then: `1,0,0,0,1,0,1,0,1,0,0,0,1,0,0,0,1,0,1,0,1,0,0,0,1`.
+
+We'll use the basic neuron model where the first step is to compute a linear combination of the inputs. Thus need a weight for each of the input pixels, which means 25 weights in total.
+
+Finally, we can use the step activation function. If the linear combination is negative, the neuron activation is zero, which we decide to use to signify a cross. If the linear combination is positive, the neuron activation is one, which we decide to signify a circle.
+
+Let's try what happens when all the weights take the same numerical value, 1. With this setup, our linear combination for the cross image will be 9 (9 colored pixels, so 9 x 1, and 16 white pixels, 16 x 0), and for the circle image it will be 8 (8 colored pixels, 8 x 1, and 17 white pixels, 17 x 0). In other words, the linear combination is positive for both images and they are thus classified as circles. Not a very good result given that there are only two images to classify.
+
+To improve the result, we need to adjust the weights in such a way that the linear combination will be negative for a cross and positive for a circle. If we think about what differentiates images of crosses and circles, we can see that circles have no colored pixels in the center of the image, whereas the crosses do. Likewise, the pixels at the corners of the image are colored in the cross, but white in the circle.
+
+We can now adjust the weights. There are an infinite number of weights that do the job. For example, assign weight -1 to the center pixel (the 13th pixel), and weight 1 to the pixels in the middle of each of the four sides of the image, letting all the other weights be 0. Now, for the cross input, the center pixels produce the value -1, while for all the other pixels either the pixel value or the weight is 0, so that -1 is also the total value. This leads to activation 0, and the cross is correctly classified.
+
+How about the circle then? Each of the pixels in the middle of the sides produces the value 1, which makes 4 x 1 = 4 in total. For all the other pixels either the pixel value or the weight is zero, so 4 is the total. Since 4 is a positive value, the activation is 1, and the circle is correctly recognized as well.
