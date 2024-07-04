@@ -1,0 +1,3 @@
+We briefly discussed the importance of AI in today's and tomorrow's society but at that time, we could do so only to a limited extent because we hadn't introduced enough of the technical concepts and methods to ground the discussion on concrete terms.
+
+Now that we have a better understanding of the basic concepts of AI, we are in a much better position to take part in rational discussion about the implications of already the current AI.
