@@ -30,7 +30,7 @@ The roots of ML are in statistics, which can also be thought of as the art of **
 
 The area of ML is often divided in subareas according to the kinds of problems being attacked. A rough categorization is as follows:
 
-**Supervised learning:** We are given an input, for example a photograph with a traffic sign, and the task is to predict the correct output or label, for example which traffic sign is in the picture (speed limit, stop sign, etc). In the simplest cases, the answers are in the form of yes/no (we call these binary classification problems).
+**Supervised learning:** We are given an input, for example a photograph with a traffic sign, and the task is to predict the correct output or label, for example which traffic sign is in the picture (speed limit, stop sign, etc). In the simplest cases, the answers are in the form of yes/no (we call these binary [[notes/machine learning/naive bayes classification|classification]] problems).
 
 **Unsupervised learning:** There are no labels or correct outputs. The task is to discover the structure of the data: for example, grouping similar items to form "clusters", or reducing the data to a small number of important "dimensions". Data visualization can also be considered unsupervised learning.
 
