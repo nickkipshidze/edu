@@ -16,7 +16,7 @@ In addition to AI, there are several other closely related topics that are good 
 - Natural language processing, information retrieval and reasoning under uncertainty for processing instructions and predicting consequences of potential actions
 - Cognitive modeling and affective computing (systems that respond to expressions of human feelings or that mimic feelings) for interacting and working together with humans
 
-Many of the robotics-related AI problems are best approached by machine learning, which makes machine learning a central branch of AI for robotics.
+Many of the robotics-related [[notes/machine learning/search and problem solving|AI problems]] are best approached by machine learning, which makes machine learning a central branch of AI for robotics.
 
 > **What is a robot?**
 > 
