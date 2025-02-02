@@ -1,0 +1,11 @@
+## Density-based clustering
+
+Density-based clustering works by detecting areas where points are concentrated and where they are separated by areas that are empty or sparse. Unlike centroid based approaches, like K-means, or distribution-based approaches, like expectation maximum, density-based clustering detect clusters of an arbitrary shape. This can be extremely helpful when clusters aren't defined around a specific location or distribution. Unlike other clustering algorithms, such as K-means hierarchical clustering, a density-based algorithm can discover clusters of any shape, size, or density in your data. Density-based clustering also can distinguish between data points which are part of a cluster and those which should be labeled as noise. Density-based clustering is especially useful when working with datasets with noise or outliers or when we don't have prior knowledge about the number of clusters in the data.
+
+DBSCAN is an example of a clustering algorithm which takes a density-based approach to clustering. It uses a density-based spatial clustering approach to create clusters with a density passed in by the user which centers around a spatial centroid. The area immediately around the centroid is referred to as a neighborhood and DBSCAN attempts to define neighborhoods of clusters that have the specified density. For each cluster, DBSCAN will define three types of data points:
+
+- **Core points:** A data point is a core point if the neighborhood around that data point contains at least as many points as the user specified minimum number of points.
+- **Border points:** A data point is a border point if the neighborhood around that data point contains less than the minimum number of data points but the neighborhood around that point contains a core point.
+- **Outlier:** A data point is an outlier if it is neither a core point nor a border point. Essentially, this is the "other" class.
+
+HDBSCAN is a variant of DBSCAN which doesn't require any parameters to be set; this can make it even more flexible than the original. HDBSCAN is less sensitive to noise and outliers in the data. Also, DBSCAN can sometimes have trouble identifying clusters with non-uniform density. This was a primary motivation for HDBSCAN and so it handles clusters of varying density much more effectively.
